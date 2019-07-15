@@ -83,7 +83,6 @@ class NewVisitorTest(LiveServerTestCase):
         # She visits that URL - her to-do list is still there.
 
         # Satisfied, she goes back to sleep
-        self.browser.quit()
 
     def test_multiple_users_can_start_lists_at_diffrent_urls(self):
         #Edith starts a new to-do list
