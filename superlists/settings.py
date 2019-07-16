@@ -25,7 +25,7 @@ SECRET_KEY = 'u!+aud!z8kx+!hd4cl0=4i$6g_af3v!_v@(^v@_zand#$ri8uf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hankete.usermd.net/']
 
 
 # Application definition
