@@ -26,7 +26,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if 'DJANGO_DEBUG_FALSE' in os.environ:
     DEBUG = False
     SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
-    #ALLOWED_HOSTS = ['hankete.usermd.net']
     ALLOWED_HOSTS = [os.environ['SITENAME']]
 else:
     DEBUG = True
@@ -125,8 +124,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 if 'DJANGO_DEBUG_FALSE' in os.environ:
-    STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-else:
     ENV_PATH = os.path.abspath(os.path.dirname(__file__))
     STATIC_ROOT = os.path.join(ENV_PATH, '../public/static/')
+else:
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
