@@ -123,9 +123,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+STATIC_URL = '/static/'
+
 if 'DJANGO_DEBUG_FALSE' in os.environ:
     ENV_PATH = os.path.abspath(os.path.dirname(__file__))
     STATIC_ROOT = os.path.join(ENV_PATH, '../public/static/')
 else:
-    STATIC_URL = '/static/'
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
