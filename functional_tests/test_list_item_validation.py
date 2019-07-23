@@ -1,5 +1,6 @@
 from selenium.webdriver.common.keys import Keys
 from .base import FunctionalTest
+import time
 
 
 MAX_WAIT = 10
@@ -82,6 +83,9 @@ class ItemValidationTest(FunctionalTest):
 
         # She starts typing in the input box to clear the error
         self.get_item_input_box().send_keys("a")
+
+        # She is pleased to see the error message disappears
+        #time.sleep(100)
         self.wait_for(
             lambda: self.assertFalse(
                 self.get_error_element().is_displayed()
