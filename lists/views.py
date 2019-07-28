@@ -7,7 +7,7 @@ User = get_user_model()
 
 from lists.models import Item, List
 
-from lists.forms import ItemForm, ExistingListItemForm
+from lists.forms import ExistingListItemForm, ItemForm, NewListForm
 
 
 # Create your views here.
@@ -26,16 +26,24 @@ def view_list(request, list_id):
             return redirect(list_)
     return render(request, 'list.html', {'list': list_, "form": form})
 
+# def new_list(request):
+#     form = ItemForm(data=request.POST)  
+#     if form.is_valid():
+#         list_ = List()
+#         if request.user.is_authenticated:
+#             list_.owner = request.User
+#         list_.save()
+#         form.save(for_list=list_)
+#         return redirect(list_)
+#     else:
+#         return render(request, 'home.html', {"form": form})
+
 def new_list(request):
-    form = ItemForm(data=request.POST)  
-    if form.is_valid():  
-        list_ = List()
-        list_.owner = request.user
-        list_.save()
-        form.save(for_list=list_)
+    form = NewListForm(data=request.POST)
+    if form.is_valid():
+        list_ = form.save(owner=request.user)
         return redirect(list_)
-    else:
-        return render(request, 'home.html', {"form": form})
+    return render(request, 'home.html', {'form': form})
 
 def my_lists(request, email):
     owner = User.objects.get(email=email)
