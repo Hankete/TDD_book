@@ -8,3 +8,4 @@ __pycache__
 tdd
 virtualenv
 o.env
+functional_tests/screendumps
